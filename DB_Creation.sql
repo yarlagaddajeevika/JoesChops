@@ -48,13 +48,13 @@ ELSE
    BEGIN
 		CREATE TABLE Employee(
 		  Emp_ID Integer IDENTITY(1,1) NOT NULL PRIMARY KEY,
-        username varchar(40) NOT NULL UNIQUE,
+		  username varchar(40) NOT NULL UNIQUE,
 		  upassword varchar(10) NOT NULL CHECK(len(upassword)<=10),
 		  Emp_firstName varchar(200) NOT NULL,
-        Emp_lastName varchar(200) NOT NULL,
+		  Emp_lastName varchar(200) NOT NULL,
 		  Emp_Title varchar(200) NOT NULL, 
-        Emp_Phone Integer NOT NULL UNIQUE,
-        Emp_Email varchar(100) NOT NULL
+		  Emp_Phone Integer NOT NULL UNIQUE,
+		  Emp_Email varchar(100) NOT NULL
 		)
    END
 --------------------------------------------------------------------------------
@@ -107,7 +107,7 @@ ELSE
    BEGIN
 		CREATE TABLE Customization_Plan(
 		  Plan_ID Integer NOT NULL FOREIGN KEY REFERENCES Customization_Detail(Plan_ID) PRIMARY KEY, 
-        TE_price money NOT NULL,
+          TE_price money,
           Amount_Deposited money,
           startDate date,
           Estimated_DeliveryDate date,
@@ -118,7 +118,7 @@ ELSE
           Status varchar(20),
           Payment_date date,
           current_PhotoID Integer IDENTITY(2000,1) NOT NULL,
-          Photo_links varchar(50) NOT NULL  
+          Photo_links varchar(50) 
 		  )
    END
 
@@ -132,12 +132,12 @@ IF OBJECT_ID('Questionnaire ', 'U') IS NOT NULL
 ELSE
    BEGIN
 		CREATE TABLE Questionnaire(
+			Question_No Integer IDENTITY(1,1) NOT NULL,
             Plan_ID Integer NOT NULL FOREIGN KEY REFERENCES Customization_Detail(Plan_ID), 
-            Question_No Integer IDENTITY(1,1) NOT NULL,
             PRIMARY KEY(Plan_ID, Question_No),
             Question_Date Date,
             Question_Desp varchar(500) NOT NULL,
-            Question_Ans varchar(500) NOT NULL
+            Question_Ans varchar(500)
 	  )
    END
 

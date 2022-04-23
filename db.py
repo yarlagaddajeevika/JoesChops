@@ -64,6 +64,7 @@ def lisOfAllEmployees():
    for i in cur:
       employeeData.append(i)
    
+   print(employeeData)
    return employeeData # array with all employee names
 
 #Store details about Customisation
@@ -72,18 +73,24 @@ def StoreCustomisationDetails(custId, empName, itemName, itemdesp):
       return False
    else:
       cur.execute(f"""select Employee.Emp_ID from Employee where Employee.Emp_firstName+Employee.Emp_lastName={empName}""")
-      empID=cur[0]
-
+      empID=[]
+      for i in cur:
+         empID.append(i)
+      
       cur.execute(f"""select Vehicle.VerificationIN from Vehicle where Vehicle.Cust_ID={custId}""")
-      vIn=cur[0]
+      vIn=[]
+      for i in cur:
+         vIn.append(i)
 
       #store data in Customization_Detail
-      cur.execute(f"""insert into Customization_Detail values({custId},{vIn},{empID})""")
+      cur.execute(f"""insert into Customization_Detail values({custId},{vIn[0]},{empID[0]})""")
 
       cur.execute(f"""select Plan_ID from Customization_Detail where Cust_ID={custId}""")
-      planId = cur[0]
+      planId=[]
+      for i in cur:
+         planId.append(i)
 
-      cur.execute(f"""insert into Item values({planId},{empID},{itemName},{itemdesp},400.96,150,100,150)""")
+      cur.execute(f"""insert into Item values({planId[0]},{empID[0]},{itemName},{itemdesp},400.96,150,100,150)""")
       print("Successfully inserted data into customization and item tables")
       return True
   
@@ -93,8 +100,132 @@ def DisplayPlanId(custId):
       return False
    else:
       cur.execute(f"""select Plan_ID from Customization_Detail where Cust_ID={custId}""")
-      return cur[0]
+      temp=[]
+      for i in cur:
+         temp.append(i)
+      return temp[0]
 
 #Store Questions
-def StoreQuestions():
+def StoreQuestions(custId, date, question): #date should be a string
+   if custId==""
+      return False
+   else:
+      planId=DisplayPlanId(custId)
+      cur.execute(f"""insert into Questionnaire values({custId},{date},{question},null)""")
+      print("Successfully inserted data into Questionarrie")
+      return True
+
+#Store the initial deposit
+def initialPayment(custId, depositAmt, date):
+    
+   if custId==""
+      return False
+   else:
+     planId=DisplayPlanId(custId)
+     cur.execute(f"""insert into Customization_Plan values({planId},600.29,{depositAmt},{date},'2022-08-02',440.16,20.16,600.29-{depositAmt},'Card','Created',{date},null)""")
+     print("inserted data into plan") 
+     return True
+
+#Return total price
+def returnTotalPrice(custId):
+    if custId==""
+      return False
+   else:
+     planId=DisplayPlanId(custId)
+     cur.execute(f"""select TE_price from Customization_Plan where Plan_ID={planId}""")
+     price=[]
+     for i in cur:
+        price.append[i]
+
+     return price[0]
+
+#Display customizations for employee
+def getEmployeeCustomisations(empId):
+   if empId=="":
+      return False
+   else:
+      cur.execute(f"""select Plan_ID from Customization_Detail where Emp_ID={empId}""" )
+      empPland = []
+      for i in cur:
+         empPland.append(i)
+      cur.execute(f"""select Item.Plan_ID,Item.Item_ID,Item.Item_name,Item.Item_Desp,Customization_Plan.TE_price,Customization_Plan.Amount_Deposited,Customization_Plan.Estimated_DeliveryDate,Customization_Plan.Amount_due,
+         Customization_Plan.Status from Customization_Plan,Item where Customization_Plan.Plan_ID={empPland[0]} and Item.Emp_ID={empId}""" )
+      return cur # returns the complete data in array format might be in ()
+
+#Update photo link, delivery date
+def UpdateDB(empId, photoLink, DeliveryDate):
+   cur.execute(f"""select Plan_ID from Customization_Detail where Emp_ID={empId}""" )
+   empPland = []
+   for i in cur:
+      empPland.append(i)
+   if photoLink="" and DeliveryDate!="":
+      cur.execute(f"""update Customization_Plan set Estimated_DeliveryDate={DeliveryDate} where Plan_ID={empPland[0]}""" )
+      print("Successfully updated delivery date")
+   elif photoLink!="" and DeliveryDate="":
+      cur.execute(f"""update Customization_Plan set Photo_links={photoLink} where Plan_ID={empPland[0]}""" )
+      print("Successfully updated photo link") 
+   elif photoLink!="" and DeliveryDate!="":
+      cur.execute(f"""update Customization_Plan set Estimated_DeliveryDate={DeliveryDate},Photo_links={photoLink} where Plan_ID={empPland[0]}""" )
+      print("Successfully updated both") 
    
+   return True
+
+#display questions to employee
+def Questions(empId):
+   cur.execute(f"""select Plan_ID from Customization_Detail where Emp_ID={empId}""" )
+   empPland = []
+   for i in cur:
+      empPland.append(i)
+
+   cur.execute(f"""select Question_No,Question_Desp from Questionnaire where Plan_ID={empPland[0]}""")
+   return cur # returns an array of questions
+
+#Update question answers
+def UpdateQuestionsAns(empId,quesNo,quesAns):
+   cur.execute(f"""select Plan_ID from Customization_Detail where Emp_ID={empId}""" )
+   empPland = []
+   for i in cur:
+      empPland.append(i)
+   
+   cur.execute(f"""update Questionnaire set Question_Ans={quesAns} where Question_No={quesNo} and Plan_ID={empPland[0]}""")
+   print("Updated question answers")
+      
+#display answers to customers
+def DisplayAnswers(custId):
+   planId = DisplayPlanId(custId)
+   cur.execute(f"""select Question_No, Question_Desp, Question_Ans from Questionnaire where Plan_ID={planId}""")
+   ans=[]
+   for i in cur:
+      ans.append(i)
+   
+   return ans # array
+
+#delete vehicle details
+def DeleteVehicle(empId):
+   cur.execute(f"""select Plan_ID from Customization_Detail where Emp_ID={empId}""" )
+   empPland = []
+   for i in cur:
+      empPland.append(i)
+
+   cur.execute(f"""delete from Customization_Plan where Plan_ID={empPland[0]}""")
+   cur.execute(f"""delete from Questionnaire where Plan_ID={empPland[0]}""")
+   cur.execute(f"""delete from Item where Plan_ID={empPland[0]}""")
+
+   cur.execute(f"""select VerificationIN from Customization_Detail where Emp_ID={empId}""")
+   for i in cur:
+      vIn.append(i)
+
+   cur.execute(f"""delete from Customization_Detail where VerificationIN={vIn[0]}""")
+   cur.execute(f"""delete from Vehicle where VerificationIN={vIn[0]}""")
+
+#Search with PlanID - customer
+def searchData(planId):
+   cur.execute(f"""select Status,Estimated_DeliveryDate,Amount_due,Photo_links,Item.Item_name,Item.Item_Desp from Customization_Plan 
+     inner JOIN Item on Customization_Plan.Plan_ID={planId} and Item.Plan_ID={planId}""")
+   
+   searchData=[]
+
+   for i in cur:
+      searchData.append(i)
+
+   return searchData # returns array
