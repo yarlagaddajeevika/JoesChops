@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Customer</title>
+    {% include 'header.html' %}
+</head>
+
+<body id="customer-body">
+    <header>
+        {% include 'cusToolbar.html' %}
+        <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Current Customers</h1>
+    </header>
+
+    <div class="container text-center">
+        <main class="jumbotron" id="main-tag">
+            <h1>Welcome Back!</h1>
+            <p>How to start your customization? How to track your customization progress? How to pay your bill? Please
+                read these steps carefully and use the toolbar in the upper right for navigation.</p>
+            <ol>
+                <li>Input your vehicle information in the vehicle page before you start your customization</li>
+                <li>Input your customization details in customization page</li>
+                <li>Check your customization progress in customization report page</li>
+                <li>Pay your deposit in payment page after you input your customization details</li>
+                <li>Once your customization completes, check your billing details in billing page and pay your bill in
+                    payment page</li>
+            </ol>
+            <p>If you have any questions, please feel free to visit our store or email us. Our email address is
+                joeschops@gmail.com.</p>
+        </main>
+    </div>
+
+    {% include 'script.html' %}
+</body>
+
+</html>

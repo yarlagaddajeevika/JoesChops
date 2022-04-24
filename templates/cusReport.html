@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Customization Report</title>
+    {% include 'header.html' %}
+</head>
+
+<body id="customer-body">
+    <header>
+        {% include 'cusToolbar.html' %}
+        <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Customization Report</h1>
+    </header>
+    <main class="jumbotron" id="main-tag">
+        <p class="container text-center">Enter your customization plan id and click search button to track your
+            customization progress.</p>
+        <form action="/getPlanid" method="post">
+            <div class="container">
+                {% if message %}
+                <p>{{ message }}</p>
+                {% endif %}
+                <div class="form-group">
+                    <label for="planID"><b>Customization Plan ID</b></label>
+                    <input type="text" class="form-control validate" name="planID" required>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-success" id="sign-log" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+
+        <br>
+        <br>
+
+        <p class="container text-center">Submit your questions regarding to customization progress and our employees
+            will answer your questions as soon as possible.</p>
+        <form action="/inputQuestions" method="post">
+            <div class="container">
+                <div class="form-group">
+                    <label for="custID"><b>Customer ID</b></label>
+                    <input type="text" class="form-control validate" name="custID" required>
+                </div>
+                <div class="form-group">
+                    <label for="date"><b>Date</b></label>
+                    <input type="text" class="form-control validate" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="questions"><b>Questions</b></label>
+                    <input type="text" class="form-control validate" name="questions" required>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-success" id="sign-log" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </main>
+    {% include 'script.html' %}
+</body>
+
+</html>

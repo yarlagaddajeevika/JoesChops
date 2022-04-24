@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Employee</title>
+    {% include 'header.html' %}
+</head>
+
+<body id="employee-body">
+    <header>
+        {% include 'empToolbar.html' %}
+        <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Employee</h1>
+    </header>
+
+    <div class="container text-center">
+        <main class="jumbotron" id="main-tag">
+            <h1>Employee Rules</h1>
+            <ol>
+                <li>Keep a good communication with customers</li>
+                <li>Update the newest customization progress as soon as possible</li>
+                <li>Answer customers' questions as soon as possible</li>
+            </ol>
+        </main>
+    </div>
+
+    {% include 'script.html' %}
+</body>
+
+</html>

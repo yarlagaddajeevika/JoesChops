@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Employee</title>
+    {% include 'header.html' %}
+</head>
+
+<body id="employee-body">
+    <header>
+        {% include 'empToolbar.html' %}
+        <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Update Customization
+            Progress</h1>
+    </header>
+    <main class="jumbotron" id="main-tag">
+        <p class="container text-center">Upload the newest photos for an ongoing customization plan.</p>
+        <div class="container">
+            <div class="form-group">
+                <label for="planID"><b>Customization Plan ID</b></label>
+                <input type="text" class="form-control validate" name="planID" required>
+            </div>
+            <form action="/uploadPho.php">
+                <label for="img">Select image:</label>
+                <input type="file" id="img" name="img" accept="image/*">
+                <input class="btn btn-success" type="submit">
+            </form>
+        </div>
+    </main>
+    {% include 'script.html' %}
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Employee</title>
+    {% include 'header.html' %}
+</head>
+
+<body id="employee-body">
+    <header>
+        {% include 'empToolbar.html' %}
+        <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Show Customization Plans
+        </h1>
+    </header>
+    <main class="jumbotron" id="main-tag">
+        <p class="container text-center">Enter your employee id to show customization plans under your responsibility.
+        </p>
+        <form action="/getEmpid" method="post">
+            <div class="container">
+                {% if message %}
+                <p>{{ message }}</p>
+                {% endif %}
+                <div class="form-group">
+                    <label for="empID"><b>Employee ID</b></label>
+                    <input type="text" class="form-control validate" name="empID" required>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-success" id="sign-log" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+
+    </main>
+    {% include 'script.html' %}
+</body>
+
+</html>
