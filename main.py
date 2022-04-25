@@ -210,6 +210,24 @@ def deleteV():
     return render_template('delete.html', message="Fail.")
 
 
+@app.route('/rate', methods=['POST', 'GET'])
+def rate():
+    if request.method == "POST":
+        rate = request.form.get('rate', None)
+        print(rate)
+        return render_template('cusReport.html', message="Submit Successfully")
+    return render_template('cusReport.html', message="Fail.")
+
+
+@app.route('/getPlanID', methods=['POST', 'GET'])
+def getPlanID():
+    if request.method == "POST":
+        cusID = request.form.get('cusID', None)
+        planID = db.DisplayPlanId(cusID)
+        return render_template('customization.html', message=planID)
+    return render_template('customization.html', message="Fail.")
+
+
 @app.route('/customer')
 def customer():
     return render_template('customer.html')

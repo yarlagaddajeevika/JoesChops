@@ -12,13 +12,13 @@
         <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Customization Report</h1>
     </header>
     <main class="jumbotron" id="main-tag">
+        {% if message %}
+        <p class="container text-center"><strong>{{ message }}</strong></p>
+        {% endif %}
         <p class="container text-center">Enter your customization plan id and click search button to track your
             customization progress.</p>
         <form action="/getPlanid" method="post">
             <div class="container">
-                {% if message %}
-                <p>{{ message }}</p>
-                {% endif %}
                 <div class="form-group">
                     <label for="planID"><b>Customization Plan ID</b></label>
                     <input type="text" class="form-control validate" name="planID" required>
@@ -36,9 +36,9 @@
             will answer your questions as soon as possible.</p>
         <form action="/inputQuestions" method="post">
             <div class="container">
-                {% if message %}
+                <!-- {% if message %}
                 <p>{{ message }}</p>
-                {% endif %}
+                {% endif %} -->
                 <div class="form-group">
                     <label for="custID"><b>Customer ID</b></label>
                     <input type="text" class="form-control validate" name="custID" required>
@@ -60,18 +60,38 @@
         <br>
         <br>
 
-        <p class="container text-center">Check Answers.</p>
+        <p class="container text-center">Check Answers</p>
         <form action="/getAns" method="post">
             <div class="container">
-                {% if message %}
+                <!-- {% if message %}
                 <p>{{ message }}</p>
-                {% endif %}
+                {% endif %} -->
                 <div class="form-group">
                     <label for="custID"><b>Customer ID</b></label>
                     <input type="text" class="form-control validate" name="custID" required>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <button class="btn btn-success" id="sign-log" type="submit">Check</button>
+                </div>
+            </div>
+        </form>
+
+        <br>
+        <br>
+        <p class="container text-center">Rate our service</p>
+        <form action="/rate" method="post">
+            <div class="container">
+                <div class="form-group">
+                    <label for="custID"><b>Customer ID</b></label>
+                    <input type="text" class="form-control validate" name="custID" required>
+                </div>
+                <p class="container text-center">Rate from 1 to 5</p>
+                <div class="form-group">
+                    <label for="rate"><b>Rate</b></label>
+                    <input type="text" class="form-control validate" name="rate" required>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-success" id="sign-log" type="submit">Submit</button>
                 </div>
             </div>
         </form>

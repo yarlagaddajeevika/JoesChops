@@ -12,12 +12,15 @@
         <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Vehicle</h1>
     </header>
     <main class="jumbotron" id="main-tag">
+        {% if message %}
+        <p class="container text-center"><strong>{{ message }}</strong></p>
+        {% endif %}
         <h2 class="container text-center">Vehicle Information</h2>
         <form action="/vehicleInput" method="post">
             <div class="modal-body mx-3" id="register">
-                {% if message %}
+                <!-- {% if message %}
                 <p>{{ message }}</p>
-                {% endif %}
+                {% endif %} -->
                 <div class="md-form mb-5">
                     <i class="fas fa-user"></i>
                     <label for="id">Customer ID</label>

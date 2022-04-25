@@ -25,13 +25,16 @@
             <br>
             <br>
             <br>
+            {% if message %}
+            <p class="container text-center"><strong>{{ message }}</strong></p>
+            {% endif %}
 
             <h1>Customer Login</h1>
             <form action="/cuslogin" method="post">
                 <div class="container">
-                    {% if message %}
+                    <!-- {% if message %}
                     <p>{{ message }}</p>
-                    {% endif %}
+                    {% endif %} -->
                     <!-- <input type="checkbox" id="employee1" name="flag" value="employee1">
                     <label for="vehicle2"> Employee</label><br> -->
                     <div class="form-group">
@@ -54,9 +57,9 @@
             <h1>Employee Login</h1>
             <form action="/emplogin" method="post">
                 <div class="container">
-                    {% if message %}
+                    <!-- {% if message %}
                     <p>{{ message }}</p>
-                    {% endif %}
+                    {% endif %} -->
                     <!-- <input type="checkbox" id="employee1" name="flag" value="employee1">
                     <label for="vehicle2"> Employee</label><br> -->
                     <div class="form-group">
@@ -81,9 +84,9 @@
             <h1>New Customer Sign Up</h1>
             <form action="/register" method="post">
                 <div class="modal-body mx-3" id="register">
-                    {% if message %}
+                    <!-- {% if message %}
                     <p>{{ message }}</p>
-                    {% endif %}
+                    {% endif %} -->
                     <!-- <div class="md-form mb-5">
                         <i class="fas fa-user"></i>
                         <label for="id">Customer ID</label>

@@ -12,13 +12,16 @@
         <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Answer Questions</h1>
     </header>
     <main class="jumbotron" id="main-tag">
+        {% if message %}
+        <p class="container text-center"><strong>{{ message }}</strong></p>
+        {% endif %}
         <p class="container text-center">Enter your employee ID to process questions from
             customers.</p>
         <form action="/getQuestion" method="post">
             <div class="container">
-                {% if message %}
+                <!-- {% if message %}
                 <p>{{ message }}</p>
-                {% endif %}
+                {% endif %} -->
                 <div class="form-group">
                     <label for="empID"><b>Employee ID</b></label>
                     <input type="text" class="form-control validate" name="empID" required>
@@ -35,9 +38,9 @@
         <p class="container text-center">Answer Questions.</p>
         <form action="/ansQuestion" method="post">
             <div class="container">
-                {% if message %}
+                <!-- {% if message %}
                 <p>{{ message }}</p>
-                {% endif %}
+                {% endif %} -->
                 <div class="form-group">
                     <label for="empID"><b>Employee ID</b></label>
                     <input type="text" class="form-control validate" name="empID" required>
