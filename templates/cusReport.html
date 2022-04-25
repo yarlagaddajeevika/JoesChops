@@ -36,6 +36,9 @@
             will answer your questions as soon as possible.</p>
         <form action="/inputQuestions" method="post">
             <div class="container">
+                {% if message %}
+                <p>{{ message }}</p>
+                {% endif %}
                 <div class="form-group">
                     <label for="custID"><b>Customer ID</b></label>
                     <input type="text" class="form-control validate" name="custID" required>
@@ -50,6 +53,25 @@
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <button class="btn btn-success" id="sign-log" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <br>
+        <br>
+
+        <p class="container text-center">Check Answers.</p>
+        <form action="/getAns" method="post">
+            <div class="container">
+                {% if message %}
+                <p>{{ message }}</p>
+                {% endif %}
+                <div class="form-group">
+                    <label for="custID"><b>Customer ID</b></label>
+                    <input type="text" class="form-control validate" name="custID" required>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-success" id="sign-log" type="submit">Check</button>
                 </div>
             </div>
         </form>
