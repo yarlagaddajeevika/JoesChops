@@ -203,6 +203,7 @@ def getEmployeeCustomisations(empId):
          Customization_Plan.Status from Customization_Plan,Item where Customization_Plan.Plan_ID={empPland[0][0]} and Item.Emp_ID={empId}""")
         result = []
         for i in cur:
+            print(result)
             result.append(i)
         # returns the complete data in array format might be in ()
         return result[0]
