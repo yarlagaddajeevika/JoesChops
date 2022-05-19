@@ -8,10 +8,10 @@
 
 <body id="employee-body">
     <header>
-        {% include 'empToolbar.html' %}
+        {% include 'toolbar.html' %}
         <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Answer Questions</h1>
     </header>
-    <main class="jumbotron" id="main-tag">
+    <div class="main">
         {% if message %}
         <p class="container text-center"><strong>{{ message }}</strong></p>
         {% endif %}
@@ -24,7 +24,7 @@
                 {% endif %} -->
                 <div class="form-group">
                     <label for="empID"><b>Employee ID</b></label>
-                    <input type="text" class="form-control validate" name="empID" required>
+                    <input type="text" name="empID" required>
                 </div>
             </div>
             <div class="container">
@@ -43,15 +43,15 @@
                 {% endif %} -->
                 <div class="form-group">
                     <label for="empID"><b>Employee ID</b></label>
-                    <input type="text" class="form-control validate" name="empID" required>
+                    <input type="text" name="empID" required>
                 </div>
                 <div class="form-group">
                     <label for="quesNo"><b>Question Number</b></label>
-                    <input type="text" class="form-control validate" name="quesNo" required>
+                    <input type="text" name="quesNo" required>
                 </div>
                 <div class="form-group">
                     <label for="quesAns"><b>Question Answer</b></label>
-                    <input type="text" class="form-control validate" name="quesAns" required>
+                    <input type="text" name="quesAns" required>
                 </div>
             </div>
             <div class="container">
@@ -60,7 +60,17 @@
                 </div>
             </div>
         </form>
-    </main>
+    </div>
+    <div class="sidenav">
+        <a class="nav-link" href="/">Back to Home</a>
+
+        <!-- <a class="nav-link" href="/customer">Customer</a> -->
+        <a class="nav-link" href="/showPlan">Show Plan</a>
+
+        <a class="nav-link" href="/updateProgress">Update Progress</a>
+        <a class="nav-link" href="/ansQuestions">Answer Questions</a>
+        <a class="nav-link" href="/delete">Delete</a>
+    </div>
     {% include 'script.html' %}
 </body>
 

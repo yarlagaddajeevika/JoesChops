@@ -3,19 +3,21 @@
 
 <head>
     <title>Customization</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/style.css">
     {% include 'header.html' %}
 </head>
 
 <body id="customer-body">
     <header>
-        {% include 'cusToolbar.html' %}
-        <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Customization</h1>
+        {% include 'toolbar.html' %}
+        <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Customization Plan</h1>
     </header>
-    <main class="jumbotron" id="main-tag">
+    <div class="main">
         {% if message %}
         <p class="container text-center"><strong>{{ message }}</strong></p>
         {% endif %}
-        <div class="container">
+        <!-- <div class="container">
             <p class="container text-center">Customization Guide</p>
             <p>We offer serveral default customization options. You can feel free to choose one of them. You
                 can also do the entire customization by yourself by specifying which parts to be applied what
@@ -25,7 +27,7 @@
                 <li>Fancy exterior paint: Blue, Red, Yellow</li>
                 <li>Plush interior</li>
             </ol>
-        </div>
+        </div> -->
 
         <br>
         <br>
@@ -49,28 +51,27 @@
         <br>
         <br>
 
-        <p class="container text-center">Customization Plan Details</p>
+        <p class="container text-center">Input Customization Plan Details</p>
         <form action="/customize" method="post">
             <div class="container">
                 <!-- {% if message %}
                 <p>{{ message }}</p>
                 {% endif %} -->
-                <div class="form-group">
-                    <label for="custID"><b>Customer ID</b></label>
-                    <input type="text" class="form-control validate" name="custID" required>
-                </div>
-                <div class="form-group">
-                    <label for="empName"><b>Employee Name</b></label>
-                    <input type="text" name="empName" class="form-control validate" required>
-                </div>
-                <div class="form-group">
-                    <label for="itemName"><b>Item Name</b></label>
-                    <input type="text" class="form-control validate" name="itemName" required>
-                </div>
-                <div class="form-group">
-                    <label for="itemDescri"><b>Item Description</b></label>
-                    <input type="text" name="itemDescri" class="form-control validate" required>
-                </div>
+
+                <label for="custID"><b>Customer ID</b></label>
+                <input type="text" name="custID" required><br>
+
+
+                <label for="empName"><b>Employee Name</b></label>
+                <input type="text" name="empName" required><br>
+
+                <label for="itemName"><b>Item Name</b></label>
+                <input type="text" name="itemName" required><br>
+
+
+                <label for="itemDescri"><b>Item Description</b></label>
+                <input type="text" name="itemDescri" required><br>
+
                 <div class="modal-footer d-flex justify-content-center">
                     <button class="btn btn-success" id="sign-log" type="submit">Submit</button>
                 </div>
@@ -89,14 +90,26 @@
                 {% endif %} -->
                 <div class="form-group">
                     <label for="cusID"><b>Customer ID</b></label>
-                    <input type="text" class="form-control validate" name="cusID" required>
+                    <input type="text" name="cusID" required>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <button class="btn btn-success" id="sign-log" type="submit">Get</button>
                 </div>
             </div>
         </form>
-    </main>
+    </div>
+    <div class="sidenav">
+        <a class="nav-link" href="/">Back to Home</a>
+
+        <!-- <a class="nav-link" href="/customer">Customer</a> -->
+        <a class="nav-link" href="/vehicle">Vehicle Information</a>
+
+        <a class="nav-link" href="/customization">Customization Plan</a>
+        <a class="nav-link" href="/billing"> Billing</a>
+        <a class="nav-link" href="/payment">Payment</a>
+
+        <a class="nav-link" href="/cusReport"> Customization Report</a>
+    </div>
     {% include 'script.html' %}
 </body>
 

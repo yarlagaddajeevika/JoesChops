@@ -3,32 +3,37 @@
 
 <head>
     <title>Customer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/style.css">
+
     {% include 'header.html' %}
 </head>
 
-<body id="customer-body">
+<body>
     <header>
-        {% include 'cusToolbar.html' %}
+        {% include 'toolbar.html' %}
         <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Current Customers</h1>
     </header>
+    <div class="main">
 
-    <div class="container text-center">
-        <main class="jumbotron" id="main-tag">
-            <h1>Welcome Back!</h1>
-            <p>How to start your customization? How to track your customization progress? How to pay your bill? Please
-                read these steps carefully and use the toolbar in the upper right for navigation.</p>
-            <ol>
-                <li>Input your vehicle information in the vehicle page before you start your customization</li>
-                <li>Input your customization details in customization page</li>
-                <li>Check your customization progress in customization report page</li>
-                <li>Pay your deposit in payment page after you input your customization details</li>
-                <li>Once your customization completes, check your billing details in billing page and pay your bill in
-                    payment page</li>
-            </ol>
-            <p>If you have any questions, please feel free to visit our store or email us. Our email address is
-                joeschops@gmail.com.</p>
-        </main>
+        <p>Welcome Back!</p>
+
     </div>
+    <div class="sidenav">
+        <a class="nav-link" href="/">Back to Home</a>
+
+        <!-- <a class="nav-link" href="/customer">Customer</a> -->
+        <a class="nav-link" href="/vehicle">Vehicle Information</a>
+
+        <a class="nav-link" href="/customization">Customization Plan</a>
+        <a class="nav-link" href="/billing"> Billing</a>
+        <a class="nav-link" href="/payment">Payment</a>
+
+        <a class="nav-link" href="/cusReport"> Customization Report</a>
+    </div>
+
+
+
 
     {% include 'script.html' %}
 </body>

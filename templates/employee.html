@@ -3,25 +3,39 @@
 
 <head>
     <title>Employee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/style.css">
     {% include 'header.html' %}
 </head>
 
-<body id="employee-body">
+<body>
     <header>
-        {% include 'empToolbar.html' %}
+        {% include 'toolbar.html' %}
         <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Employee</h1>
     </header>
 
-    <div class="container text-center">
-        <main class="jumbotron" id="main-tag">
-            <h1>Employee Rules</h1>
-            <ol>
-                <li>Keep a good communication with customers</li>
-                <li>Update the newest customization progress as soon as possible</li>
-                <li>Answer customers' questions as soon as possible</li>
-            </ol>
-        </main>
+    <div class="main">
+
+        <h1>Employee Rules</h1>
+        <ol>
+            <li>Keep a good communication with customers</li>
+            <li>Update the newest customization progress as soon as possible</li>
+            <li>Answer customers' questions as soon as possible</li>
+        </ol>
+
     </div>
+
+    <div class="sidenav">
+        <a class="nav-link" href="/">Back to Home</a>
+
+        <!-- <a class="nav-link" href="/customer">Customer</a> -->
+        <a class="nav-link" href="/showPlan">Show Plan</a>
+
+        <a class="nav-link" href="/updateProgress">Update Progress</a>
+        <a class="nav-link" href="/ansQuestions">Answer Questions</a>
+        <a class="nav-link" href="/delete">Delete</a>
+    </div>
+
 
     {% include 'script.html' %}
 </body>

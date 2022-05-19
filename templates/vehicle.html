@@ -8,90 +8,69 @@
 
 <body id="customer-body">
     <header>
-        {% include 'cusToolbar.html' %}
-        <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Vehicle</h1>
+        {% include 'toolbar.html' %}
+        <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Vehicle Information</h1>
     </header>
-    <main class="jumbotron" id="main-tag">
+    <div class="main">
         {% if message %}
         <p class="container text-center"><strong>{{ message }}</strong></p>
         {% endif %}
-        <h2 class="container text-center">Vehicle Information</h2>
         <form action="/vehicleInput" method="post">
             <div class="modal-body mx-3" id="register">
-                <!-- {% if message %}
-                <p>{{ message }}</p>
-                {% endif %} -->
-                <div class="md-form mb-5">
-                    <i class="fas fa-user"></i>
-                    <label for="id">Customer ID</label>
-                    <input type="text" name="new_id" id="id" class="form-control validate" required>
-                </div>
-                <!-- <div class="md-form mb-5">
-                    <i class="fas fa-user"></i>
-                    <label for="plate">Plate Number</label>
-                    <input type="text" name="new_plate" id="plate" class="form-control validate" required>
-                </div> -->
-                <div class="md-form mb-5">
-                    <i class="fas fa-user"></i>
-                    <label for="brand">Car Brand</label>
-                    <input type="text" name="new_brand" id="brand" class="form-control validate" required>
-                </div>
-                <div class="md-form mb-5">
-                    <i class="fas fa-user"></i>
-                    <label for="model">Model Number</label>
-                    <input type="text" name="new_model" id="model" class="form-control validate" required>
-                </div>
-                <div class="md-form mb-5">
-                    <i class="fas fa-user"></i>
-                    <label for="year">Year</label>
-                    <input type="text" name="new_year" id="year" class="form-control validate" required>
-                </div>
-                <div class="md-form mb-5">
-                    <i class="fas fa-user"></i>
-                    <label for="engine">Engine Details</label>
-                    <input type="text" name="new_engine" id="engine" class="form-control validate" required>
-                </div>
-                <div class="md-form mb-5">
-                    <i class="fas fa-user"></i>
-                    <label for="trim">Trim</label>
-                    <input type="text" name="new_trim" id="trim" class="form-control validate" required>
-                </div>
-                <div class="md-form mb-5">
-                    <i class="fas fa-user"></i>
-                    <label for="interior">Interior</label>
-                    <input type="text" name="new_interior" id="interior" class="form-control validate" required>
-                </div>
-                <div class="md-form mb-5">
-                    <i class="fas fa-user"></i>
-                    <label for="exterior">Exterior</label>
-                    <input type="text" name="new_exterior" id="exterior" class="form-control validate" required>
-                </div>
-                <div class="md-form mb-5">
-                    <i class="fas fa-user"></i>
-                    <label for="condition">Body Condition Details</label>
-                    <input type="text" name="new_condition" id="condition" class="form-control validate" required>
-                </div>
-                <div class="md-form mb-5">
-                    <i class="fas fa-user"></i>
-                    <label for="frame">Frame Condition Details</label>
-                    <input type="text" name="new_frame" id="frame" class="form-control validate" required>
-                </div>
-                <div class="md-form mb-5">
-                    <i class="fas fa-user"></i>
-                    <label for="interiorCon">Interior Condition Details</label>
-                    <input type="text" name="new_interiorCon" id="interiorCon" class="form-control validate" required>
-                </div>
-                <div class="md-form mb-5">
-                    <i class="fas fa-lock"></i>
-                    <label for="engineCon">Engine Condition Details</label>
-                    <input type="text" name="new_engineCon" id="engineCon" class="form-control validate" required>
-                </div>
+                <label for="id">Customer ID</label>
+                <input type="text" name="new_id" id="id" required><br>
+
+                <label for="brand">Car Brand</label>
+                <input type="text" name="new_brand" id="brand" required><br>
+
+                <label for="model">Model Number</label>
+                <input type="text" name="new_model" id="model" required><br>
+
+                <label for="year">Year</label>
+                <input type="text" name="new_year" id="year" required><br>
+
+                <label for="engine">Engine Details</label>
+                <input type="text" name="new_engine" id="engine" required><br>
+
+                <label for="trim">Trim</label>
+                <input type="text" name="new_trim" id="trim" required><br>
+
+                <label for="interior">Interior</label>
+                <input type="text" name="new_interior" id="interior" required><br>
+
+                <label for="exterior">Exterior</label>
+                <input type="text" name="new_exterior" id="exterior" required><br>
+
+                <label for="condition">Body Condition Details</label>
+                <input type="text" name="new_condition" id="condition" required><br>
+
+                <label for="frame">Frame Condition Details</label>
+                <input type="text" name="new_frame" id="frame" required><br>
+
+                <label for="interiorCon">Interior Condition Details</label>
+                <input type="text" name="new_interiorCon" id="interiorCon" required><br>
+
+                <label for="engineCon">Engine Condition Details</label>
+                <input type="text" name="new_engineCon" id="engineCon" required><br>
+
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 <button class="btn btn-success" id="sign-log" type="submit">Submit</button>
             </div>
         </form>
-    </main>
+    </div>
+    <div class="sidenav">
+        <a class="nav-link" href="/">Back to Home</a>
+
+        <!-- <a class="nav-link" href="/customer">Customer</a> -->
+        <a class="nav-link" href="/vehicle">Vehicle Information</a>
+
+        <a class="nav-link" href="/customization">Customization Plan</a>
+        <a class="nav-link" href="/billing"> Billing</a>
+        <a class="nav-link" href="/payment">Payment</a>
+
+        <a class="nav-link" href="/cusReport"> Customization Report</a>
+    </div>
 
     {% include 'script.html' %}
 </body>

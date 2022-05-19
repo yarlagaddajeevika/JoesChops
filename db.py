@@ -103,15 +103,12 @@ def StoreCustomisationDetails(custId, empName, itemName, itemdesp):
         empID = []
         for i in cur:
             empID.append(i)
-        # print(empID[0])
 
         cur.execute(
             f"""select Vehicle.VerificationIN from Vehicle where Vehicle.Cust_ID={custId}""")
         vIn = []
         for i in cur:
             vIn.append(i)
-        # print(vIn[0])
-        # print(custId)
 
         # store data in Customization_Detail
         cur.execute(

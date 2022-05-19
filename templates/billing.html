@@ -3,15 +3,17 @@
 
 <head>
     <title>Billing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/style.css">
     {% include 'header.html' %}
 </head>
 
 <body id="customer-body">
     <header>
-        {% include 'cusToolbar.html' %}
+        {% include 'toolbar.html' %}
         <h1 class="container text-center" style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Billing</h1>
     </header>
-    <main class="jumbotron" id="main-tag">
+    <div class="main">
         {% if message %}
         <p class="container text-center"><strong>{{ message }}</strong></p>
         {% endif %}
@@ -24,14 +26,26 @@
                 {% endif %} -->
                 <div class="form-group">
                     <label for="custID"><b>Customer ID</b></label>
-                    <input type="text" class="form-control validate" name="custID" required>
+                    <input type="text" name="custID" required>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <button class="btn btn-success" id="sign-log" type="submit">Search</button>
                 </div>
             </div>
         </form>
-    </main>
+    </div>
+    <div class="sidenav">
+        <a class="nav-link" href="/">Back to Home</a>
+
+        <!-- <a class="nav-link" href="/customer">Customer</a> -->
+        <a class="nav-link" href="/vehicle">Vehicle Information</a>
+
+        <a class="nav-link" href="/customization">Customization Plan</a>
+        <a class="nav-link" href="/billing"> Billing</a>
+        <a class="nav-link" href="/payment">Payment</a>
+
+        <a class="nav-link" href="/cusReport"> Customization Report</a>
+    </div>
     {% include 'script.html' %}
 </body>
 

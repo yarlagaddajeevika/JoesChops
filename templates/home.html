@@ -10,9 +10,9 @@
 <body id="home-body">
     {% include 'toolbar.html' %}
     <div class="container text-center">
-        <h1 style="text-shadow: 6px 5px 3px rgba(0,0,0,0.7);">Welcome to Joe's Chops!</h1>
+        <h1>Welcome to Joe's Chops!</h1>
         <main class="jumbotron" id="main-tag">
-            <h1>Introduction</h1>
+            <!-- <h1>Introduction</h1>
             <p> Customizing cars is popular. Several TV shows even evolved to show how small firms can take a car and
                 customize it with a larger engine, new suspension, fancy paint jobs, and plush interiors. In most cases,
                 the car is stripped down to its frame, sanded, repainted, and rebuilt with new components from the
@@ -24,7 +24,7 @@
 
             <br>
             <br>
-            <br>
+            <br> -->
             {% if message %}
             <p class="container text-center"><strong>{{ message }}</strong></p>
             {% endif %}
@@ -32,20 +32,13 @@
             <h1>Customer Login</h1>
             <form action="/cuslogin" method="post">
                 <div class="container">
-                    <!-- {% if message %}
-                    <p>{{ message }}</p>
-                    {% endif %} -->
-                    <!-- <input type="checkbox" id="employee1" name="flag" value="employee1">
-                    <label for="vehicle2"> Employee</label><br> -->
                     <div class="form-group">
                         <label for="username"><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" class="form-control validate" name="username"
-                            required>
+                        <input type="text" placeholder="Enter Username" name="username" required>
                     </div>
                     <div class="form-group">
                         <label for="logpsw"><b>Password</b></label>
-                        <input type="password" name="password" placeholder="Enter Password"
-                            class="form-control validate" required>
+                        <input type="password" name="password" placeholder="Enter Password" required>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
                         <button onclick="login()" class="btn btn-success" id="sign-log" type="submit">Login</button>
@@ -57,20 +50,14 @@
             <h1>Employee Login</h1>
             <form action="/emplogin" method="post">
                 <div class="container">
-                    <!-- {% if message %}
-                    <p>{{ message }}</p>
-                    {% endif %} -->
-                    <!-- <input type="checkbox" id="employee1" name="flag" value="employee1">
-                    <label for="vehicle2"> Employee</label><br> -->
+
                     <div class="form-group">
                         <label for="username"><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" class="form-control validate" name="username"
-                            required>
+                        <input type="text" placeholder="Enter Username" name="username" required>
                     </div>
                     <div class="form-group">
                         <label for="logpsw"><b>Password</b></label>
-                        <input type="password" name="password" placeholder="Enter Password"
-                            class="form-control validate" required>
+                        <input type="password" name="password" placeholder="Enter Password" required>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
                         <button onclick="login()" class="btn btn-success" id="sign-log" type="submit">Login</button>
@@ -84,69 +71,36 @@
             <h1>New Customer Sign Up</h1>
             <form action="/register" method="post">
                 <div class="modal-body mx-3" id="register">
-                    <!-- {% if message %}
-                    <p>{{ message }}</p>
-                    {% endif %} -->
-                    <!-- <div class="md-form mb-5">
-                        <i class="fas fa-user"></i>
-                        <label for="id">Customer ID</label>
-                        <input type="text" name="new_id" id="id" class="form-control validate" required>
-                    </div> -->
-                    <div class="md-form mb-5">
-                        <i class="fas fa-user"></i>
-                        <label for="firstname">Firstname</label>
-                        <input type="text" name="new_firstname" id="firstname" class="form-control validate" required>
-                    </div>
-                    <div class="md-form mb-5">
-                        <i class="fas fa-user"></i>
-                        <label for="lastname">Lastname</label>
-                        <input type="text" name="new_lasttname" id="lastname" class="form-control validate" required>
-                    </div>
-                    <div class="md-form mb-5">
-                        <i class="fas fa-user"></i>
-                        <label for="phone">Phone</label>
-                        <input type="text" name="new_phone" id="phone" class="form-control validate" required>
-                    </div>
-                    <div class="md-form mb-5">
-                        <i class="fas fa-user"></i>
-                        <label for="email">Email</label>
-                        <input type="text" name="new_email" id="email" class="form-control validate" required>
-                    </div>
-                    <div class="md-form mb-5">
-                        <i class="fas fa-user"></i>
-                        <label for="address">Address</label>
-                        <input type="text" name="new_address" id="address" class="form-control validate" required>
-                    </div>
-                    <div class="md-form mb-5">
-                        <i class="fas fa-user"></i>
-                        <label for="city">City</label>
-                        <input type="text" name="new_city" id="city" class="form-control validate" required>
-                    </div>
-                    <div class="md-form mb-5">
-                        <i class="fas fa-user"></i>
-                        <label for="state">State</label>
-                        <input type="text" name="new_state" id="state" class="form-control validate" required>
-                    </div>
-                    <div class="md-form mb-5">
-                        <i class="fas fa-user"></i>
-                        <label for="zip">Zip Code</label>
-                        <input type="text" name="new_zip" id="zip" class="form-control validate" required>
-                    </div>
-                    <div class="md-form mb-5">
-                        <i class="fas fa-user"></i>
-                        <label for="username">Username</label>
-                        <input type="text" name="new_username" id="username" class="form-control validate" required>
-                    </div>
-                    <div class="md-form mb-5">
-                        <i class="fas fa-lock"></i>
-                        <label for="psw">Password</label>
-                        <input type="password" name="new_password" id="psw" class="form-control validate" required>
-                    </div>
-                    <!-- <div class="md-form mb-5">
-                        <i class="fas fa-lock"></i>
-                        <label for="psw-repeat">Confirm Password</label>
-                        <input type="password" id="psw-repeat" class="form-control validate" required>
-                    </div> -->
+
+                    <label for="firstname">Firstname</label>
+                    <input type="text" name="new_firstname" id="firstname" required><br>
+
+                    <label for="lastname">Lastname</label>
+                    <input type="text" name="new_lasttname" id="lastname" required><br>
+
+                    <label for="phone">Phone</label>
+                    <input type="text" name="new_phone" id="phone" required><br>
+
+                    <label for="email">Email</label>
+                    <input type="text" name="new_email" id="email" required><br>
+
+                    <label for="address">Address</label>
+                    <input type="text" name="new_address" id="address" required><br>
+
+                    <label for="city">City</label>
+                    <input type="text" name="new_city" id="city" required><br>
+
+                    <label for="state">State</label>
+                    <input type="text" name="new_state" id="state" required><br>
+
+                    <label for="zip">Zip Code</label>
+                    <input type="text" name="new_zip" id="zip" required><br>
+
+                    <label for="username">Username</label>
+                    <input type="text" name="new_username" id="username" required><br>
+
+                    <label for="psw">Password</label>
+                    <input type="password" name="new_password" id="psw" required><br>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <button class="btn btn-success" id="sign-log" type="submit">Sign up</button>
@@ -156,6 +110,6 @@
     </div>
     <script src="{{ url_for('static', filename='main.js') }}"></script>
     {% include 'script.html' %}
-</body>
+</body> -->
 
 </html>
